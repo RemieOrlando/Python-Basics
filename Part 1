@@ -1,0 +1,457 @@
+#Casting
+x = str(3)
+y = int(3)
+z = float(3)
+
+print(x)
+print(y)
+print(z)
+
+#Unpacking a collection of values into variables
+animals = ["lion", "bear", "tiger"]
+x, y, z = animals
+
+print(x)
+print(y)
+print(z)
+
+for x in "banana":
+  print(x) 
+
+#Displaying string length
+a = "Hello, World!"
+print(len(a))
+
+#Check String
+txt = "The best things in life are free!"
+if "free" in txt:
+  print("Yes, 'free' is present.")
+
+snt = "The best things in life are costly!"
+if "free" in snt:
+  print("Yes, 'free' is present.")
+else:
+  print("No, 'free' is not present.")
+
+png = "The best things in life are expensive!"
+if "expensive" not in png:
+  print("No, 'expensive' is NOT present.")
+else:
+  print("Yes, 'expensive' is present.")
+
+#Slicing arange of characters
+b = "Ice cream melts"
+print(b[2:7])
+
+b = "Ice cream melts"
+print(b[:12])
+
+b = "Ice cream melts"
+print(b[7:])
+
+b = "Ice cream melts"
+print(b[-5:-2])
+
+#uppercase
+a = "Ice cream melts"
+print(a.upper())
+
+#lower case
+c = "Ice cream melts"
+print(c.lower())
+
+#replace method
+e = "Ice cream melts"
+print(e.replace("lt", "al"))
+
+#string concatenation
+a = "Hello"
+b = "World"
+c = a + " " + b
+print(c)
+
+#format () method
+quantity = 3
+itemno = 567
+price = 6000
+myorder = "I want {} pieces of item {} for Ksh {}."
+print(myorder.format(quantity, itemno, price))
+
+quantity = 3
+itemno = 321
+price = 4550
+myorder = "It costs {2} shillings to buy {0} shoes of product {1}."
+print(myorder.format(quantity, itemno, price))
+
+#escape  character
+txt = "We are the so-called \"Vikings\" from the north."
+print(txt)
+
+txt = "I am \n Inevitable!"
+nxt = "I am \r Inevitable!"
+print(txt)
+print(nxt)
+
+#boolean character
+print(10 > 9)
+print(10 == 9)
+print(10 < 9)
+
+x = "Hello"
+y = 15
+
+print(bool(x))
+print(bool(y))
+
+def myFunction() :
+  return True
+
+print(myFunction())
+
+#arithmetic operators
+x = 10
+y = 5 
+
+print(x + y)	
+print(x - y)	
+print(x * y)	
+print(x / y)	
+print(x % y)	
+print(x ** y) #same as 10*10*10*10*10	
+print(x // y)
+
+#assignment operators
+x = 5
+x += 3
+print(x)
+
+#comparison operators
+x = 5
+y = 3
+
+print(x == y)
+
+#logical operators
+x = 5
+
+print(x > 3 and x < 10)
+
+#identity operators
+x = ["apple", "banana"]
+y = ["apple", "banana"]
+z = x
+
+print(x is z)
+# returns True because z is the same object as x
+
+print(x is y)
+# returns False because x is not the same object as y, even if they have the same content
+
+print(x == y)
+# to demonstrate the difference betweeen "is" and "==": this comparison returns True because x is equal to y
+
+#membership operators
+x = ["apple", "banana"]
+
+print("banana" in x)
+# returns True because a sequence with the value "banana" is in the list
+
+#bitwise operators
+print(6 & 3)
+
+"""
+The & operator compares each bit and set it to 1 if both are 1, otherwise it is set to 0:
+
+6 = 0000000000000110
+3 = 0000000000000011
+--------------------
+2 = 0000000000000010
+====================
+
+Decimal numbers and their binary values:
+0 = 0000000000000000
+1 = 0000000000000001
+2 = 0000000000000010
+3 = 0000000000000011
+4 = 0000000000000100
+5 = 0000000000000101
+6 = 0000000000000110
+7 = 0000000000000111
+"""
+
+#Creating lists
+thislist = ["apple", "banana", "cherry"]
+print(thislist)
+
+#list length
+thislist = ["apple", "banana", "cherry"]
+print(len(thislist))
+
+#list datatype
+mylist = ["apple", "banana", "cherry"]
+print(type(mylist))
+
+#list constructor
+thislist = list(("apple", "banana", "cherry")) # note the double round-brackets
+print(thislist)
+
+#access items on list
+thislist = ["apple", "banana", "cherry"]
+print(thislist[1])
+
+#Negative Indexing (stating from the end)
+thislist = ["apple", "banana", "cherry"]
+print(thislist[-1])
+
+#range of indexes
+thislist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+print(thislist[2:5])
+
+#check if item exists
+thislist = ["apple", "banana", "cherry"]
+if "apple" in thislist:
+  print("Yes, 'apple' is in the fruits list")
+  
+#change item in list
+thislist = ["apple", "banana", "cherry"]
+thislist[1] = "blackcurrant"
+print(thislist)
+
+#change a range of items in a list
+thislist = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
+thislist[1:3] = ["blackcurrant", "watermelon"]
+print(thislist)
+
+#insert item into list
+thislist = ["apple", "banana", "cherry"]
+thislist.insert(2, "watermelon")
+print(thislist)
+
+#add item to the end of the list (append)
+thislist = ["apple", "banana", "cherry"]
+thislist.append("orange")
+print(thislist)
+
+#append elements from one list to another
+thislist = ["apple", "banana", "cherry"]
+tropical = ["mango", "pineapple", "papaya"]
+thislist.extend(tropical)
+print(thislist)
+
+#add any iterable item (tuples, sets, dictionaries...etc.) 
+thislist = ["apple", "banana", "cherry"]
+thistuple = ("kiwi", "orange")
+thislist.extend(thistuple)
+print(thislist)
+
+#remove item from list
+thislist = ["apple", "banana", "cherry"]
+thislist.remove("banana")
+print(thislist)
+
+#Remove Specified Index
+thislist = ["apple", "banana", "cherry"]
+thislist.pop(1)
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+thislist.pop()
+print(thislist)
+#If you do not specify the index, the pop() method removes the last item.
+
+thislist = ["apple", "banana", "cherry"]
+del thislist
+
+#clear list
+thislist = ["apple", "banana", "cherry"]
+thislist.clear()
+print(thislist)
+
+#for loop list
+thislist = ["apple", "banana", "cherry"]
+for x in thislist:
+  print(x)
+  
+#while loop list
+thislist = ["apple", "banana", "cherry"]
+i = 0
+while i < len(thislist):
+  print(thislist[i])
+  i = i + 1
+  
+#Looping Using List Comprehension
+thislist = ["apple", "banana", "cherry"]
+[print(x) for x in thislist]
+
+#Making a new list with a conditional test
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = []
+
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+
+print(newlist)
+
+#List comprehension of previous conditional test
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x for x in fruits if "a" in x]
+
+print(newlist)
+
+#list comprehension with range condition
+newlist = [x for x in range(10)]
+
+print(newlist)
+
+#expession condition
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x.upper() for x in fruits]
+
+print(newlist)
+
+#sort lists
+thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+thislist.sort()
+print(thislist)
+
+#sort in descending order
+thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+thislist.sort(reverse = True)
+print(thislist)
+
+#sort list based on condition
+def myfunc(n):
+  return abs(n - 50)
+
+thislist = [100, 50, 65, 82, 23]
+
+thislist.sort(key = myfunc)
+
+print(thislist)
+
+#Case Insensitive Sort
+thislist = ["banana", "Orange", "Kiwi", "cherry"]
+thislist.sort()
+print(thislist)
+
+#reverse order
+thislist = ["banana", "Orange", "Kiwi", "cherry"]
+thislist.reverse()
+print(thislist)
+
+#copying lists
+thislist = ["apple", "banana", "cherry"]
+mylist = thislist.copy()
+print(mylist)
+
+#joining lists
+list1 = ["a", "b", "c"]
+list2 = [1, 2, 3]
+
+list3 = list1 + list2
+print(list3)
+
+#appending one list to another
+list1 = ["a", "b" , "c"]
+list2 = [1, 2, 3]
+
+for x in list2:
+  list1.append(x)
+
+print(list1)
+
+#extend method
+list1 = ["a", "b" , "c"]
+list2 = [1, 2, 3]
+
+list1.extend(list2)
+print(list1)
+
+#create tuple
+thistuple = ("apple", "banana", "cherry")
+print(thistuple)
+
+#Access Tuple Items
+thistuple = ("apple", "banana", "cherry")
+print(thistuple[1])
+
+#check if item exists
+thistuple = ("apple", "banana", "cherry")
+if "apple" in thistuple:
+  print("Yes, 'apple' is in the fruits tuple")
+  
+"""
+Change Tuple Values: Since Tuples are unchangeable one can convert the tuple into a list, change the list, and convert the list back into a tuple.
+"""
+
+x = ("apple", "banana", "cherry")
+y = list(x)
+y[1] = "kiwi"
+x = tuple(y)
+
+print(x)
+
+#Add tuple to tuple
+thistuple = ("apple", "banana", "cherry")
+y = ("orange",)
+thistuple += y
+
+print(thistuple)
+
+#Deleting a tuple
+thistuple = ("apple", "banana", "cherry")
+del thistuple
+
+#Unpacking a Tuple
+fruits = ("apple", "banana", "cherry")
+
+(green, yellow, red) = fruits
+
+print(green)
+print(yellow)
+print(red)
+
+"""
+Using Asterisk (If the number of variables is less than the number of values, you can add an * to the variable name and the values will be assigned to the variable as a list)
+"""
+
+fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
+
+(green, yellow, *red) = fruits
+
+print(green)
+print(yellow)
+print(red)
+
+#for loop on a tuple
+thistuple = ("apple", "banana", "cherry")
+for x in thistuple:
+  print(x)
+
+#looping using index number
+thistuple = ("apple", "banana", "cherry")
+for i in range(len(thistuple)):
+  print(thistuple[i])
+
+#while loop on a tuple
+thistuple = ("apple", "banana", "cherry")
+i = 0
+while i < len(thistuple):
+  print(thistuple[i])
+  i = i + 1
+
+#join two tuples
+tuple1 = ("a", "b" , "c")
+tuple2 = (1, 2, 3)
+
+tuple3 = tuple1 + tuple2
+print(tuple3)
+
+#Multiply Tuples
+fruits = ("apple", "banana", "cherry")
+mytuple = fruits * 2
+
+print(mytuple)
