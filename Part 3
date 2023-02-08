@@ -1,0 +1,375 @@
+#parent and child class
+class Person:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+class Student(Person):
+  pass
+
+x = Student("Mike", "Olsen")
+x.printname()
+
+#__init__() function in inheritance
+class Person:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+class Student(Person):
+  def __init__(self, fname, lname):
+    Person.__init__(self, fname, lname)
+
+x = Student("Mike", "Olsen")
+x.printname()
+
+#super () function
+class Person:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+class Student(Person):
+  def __init__(self, fname, lname):
+    super().__init__(fname, lname)
+
+x = Student("Mike", "Olsen")
+x.printname()
+
+#Adding properties
+class Person:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+class Student(Person):
+  def __init__(self, fname, lname):
+    super().__init__(fname, lname)
+    self.graduationyear = 2019
+
+x = Student("Mike", "Olsen")
+print(x.graduationyear)
+
+
+#Add Methods
+class Person:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+class Student(Person):
+  def __init__(self, fname, lname, year):
+    super().__init__(fname, lname)
+    self.graduationyear = year
+
+  def welcome(self):
+    print("Welcome", self.firstname, self.lastname, "to the class of", 	self.graduationyear)
+
+x = Student("Mike", "Olsen", 2019)
+x.welcome()
+
+#Iterators
+mytuple = ("apple", "banana", "cherry")
+myit = iter(mytuple)
+
+print(next(myit))
+print(next(myit))
+print(next(myit))
+
+#String Iterators
+mystr = "banana"
+myit = iter(mystr)
+
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+
+#Creating an Iterator
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    x = self.a
+    self.a += 1
+    return x
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+
+#StopIteration statement
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    if self.a <= 20:
+      x = self.a
+      self.a += 1
+      return x
+    else:
+      raise StopIteration
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+for x in myiter:
+  print(x)
+
+#Local Scope
+def myfunc():
+  x = 300
+  print(x)
+
+myfunc()
+
+#Function inside function
+def myfunc():
+  x = 300
+  def myinnerfunc():
+    print(x)
+  myinnerfunc()
+
+myfunc()
+
+#Global Scope
+x = 300
+
+def myfunc():
+  print(x)
+
+myfunc()
+
+print(x) #A global variable is created outside of a function and can be used by anyone
+
+#Naming Variables
+x = 300
+
+def myfunc():
+  x = 200
+  print(x)
+
+myfunc()
+
+print(x) #The function will print the local x while the code will print the global x
+
+#Using Global keyword to make a local variable global
+def myfunc():
+  global x
+  x = 300
+
+myfunc()
+
+print(x)
+
+#Built-in Modules
+import platform
+
+x = platform.system()
+print(x)
+
+"""
+dir() function lists all the function names or variable names in a module.
+"""
+
+#Maths
+x = min(5, 10, 25)
+y = max(5, 10, 25)
+
+print(x)
+print(y)
+
+#abs() function
+x = abs(-7.25)
+
+print(x)
+
+#pow() function
+x = pow(4, 3)
+
+print(x)
+
+#Math Module
+import math
+
+x = math.sqrt(64)
+
+print(x)
+
+#Rounding-off
+import math
+
+x = math.ceil(3.4)
+y = math.floor(3.5)
+
+print(x) # returns 4
+print(y) # returns 3
+
+#Pi
+import math
+
+x = math.pi
+
+print(x)
+
+"""
+Parse JSON - Convert from JSON to Python
+If you have a JSON string, you can parse it by using the json.loads() method.
+"""
+
+#Conveting Python to JSON (JavaScript Object Notation) 
+import json
+
+# some JSON:
+x =  '{ "name":"John", "age":30, "city":"New York"}'
+
+# parse x:
+y = json.loads(x)
+
+# the result is a Python dictionary:
+print(y["age"])
+
+#Conveting JSON to Python
+import json
+
+# a Python object (dict):
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+
+# convert into JSON:
+y = json.dumps(x)
+
+# the result is a JSON string:
+print(y)
+
+#Other python objects into JSON
+import json
+
+print(json.dumps({"name": "John", "age": 30})) #dict
+print(json.dumps(["apple", "bananas"])) #list
+print(json.dumps(("apple", "bananas"))) #tuple
+print(json.dumps("hello")) #string
+print(json.dumps(42)) #int
+print(json.dumps(31.76)) #float
+print(json.dumps(True)) #True
+print(json.dumps(False)) #False
+print(json.dumps(None)) #None
+
+#Convert a Python object containing all the legal data types
+import json
+
+x = {
+  "name": "John",
+  "age": 30,
+  "married": True,
+  "divorced": False,
+  "children": ("Ann","Billy"),
+  "pets": None,
+  "cars": [
+    {"model": "BMW 230", "mpg": 27.5},
+    {"model": "Ford Edge", "mpg": 24.1}
+  ]
+}
+
+# use four indents to make it easier to read the result:
+print(json.dumps(x, indent=4))
+
+#RegEx
+import re
+
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$", txt)
+
+if x:
+  print("YES! We have a match!")
+else:
+  print("No match")
+  
+"""
+Exception Handling
+The try block does not raise any errors, so the else block is executed:
+"""
+
+try:
+  print("Hello")
+except:
+  print("Something went wrong")
+else:
+  print("Nothing went wrong")
+
+#The finally block gets executed no matter if the try block raises any errors or not:
+
+try:
+  print(x)
+except:
+  print("Something went wrong")
+finally:
+  print("The 'try except' is finished")
+
+"""
+User input - The following example asks for the username, and when you entered the username, it gets printed on the screen:
+
+username = input("Enter username:")
+print("Username is: " + username)
+"""
+
+#String Formatting
+price = 49
+txt = "The price is {} dollars"
+print(txt.format(price))
+
+price = 49.845
+txt = "The price is {:.2f} dollars"
+print(txt.format(price))
+
+#Multiple Values
+quantity = 3
+itemno = 567
+price = 49
+myorder = "I want {} pieces of item number {} for {:.2f} dollars."
+print(myorder.format(quantity, itemno, price))
+
+#Using Index Numbers
+quantity = 3
+itemno = 567
+price = 49
+myorder = "I want {} pieces of item number {} for {:.2f} dollars."
+print(myorder.format(quantity, itemno, price))
+
+age = 36
+name = "John"
+txt = "His name is {1}. {1} is {0} years old."
+print(txt.format(age, name))
+
+#Named Indexes
+myorder = "I have a {carname}, it is a {model}."
+print(myorder.format(carname = "Ford", model = "Mustang"))
